@@ -9,6 +9,12 @@ h1 {
     margin: 3rem auto;
 }
 
+#control-bar {
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: fit-content;
+}
+
 #drawing-area {
     margin: auto;
     height: 480px;

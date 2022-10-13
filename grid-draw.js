@@ -12,9 +12,6 @@ function wipeoutDrawingArea() {
  * n: number of rows and columns to generate.
  */
 function initDrawingArea(n) {
-    if (!(n > 0 && n <= 32)) {
-        throw new Error("Drawing area can only have between 0 and 32 row-columns")
-    }
     wipeoutDrawingArea();
     const drawingArea = document.querySelector('#drawing-area');
     drawingArea.style['grid-template'] = `repeat(${n}, 1fr)`
@@ -40,6 +37,48 @@ function setLightOnHover(node) {
         { once: true }
     )
 }
+
+ /**********************
+ * Control bar behavior *
+  **********************/
+
+/**
+ * Register validation behaviors of grid-size input element
+ */
+registerGridSizeInputValidation(document.querySelector('#grid-size'));
+function registerGridSizeInputValidation(gridSizeInput) {
+    const gsi = gridSizeInput;
+    const min = 4;
+    const max = 32;
+    const def = 16;
+    gsi.min = min;
+    gsi.max = max;
+    gsi.value = def;
+    gsi.addEventListener(
+        'blur',
+        (ev) => {
+            console.log("Blur!")
+            const v = gsi.value;
+            if (Number.isNaN(v))
+                gsi.value = def;
+            else if (v < min)
+                gsi.value = min;
+            else if (v > max)
+                gsi.value = max;
+        }
+    );
+}
+
+/**
+ * Register clear button behaviors
+ */
+document.querySelector('#clear').addEventListener(
+    'click',
+    (ev) =>
+{
+    const gridSizeInput = document.querySelector('#grid-size');
+    initDrawingArea(gridSizeInput.value)
+});
 
  /*************
  * Once loaded *
