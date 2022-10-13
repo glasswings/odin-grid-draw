@@ -24,3 +24,7 @@ h1 {
     height: 100%;
     background-color: #acc8c8;
 }
+
+#drawing-area div.lit {
+    background-color: peachpuff;
+}

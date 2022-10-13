@@ -22,9 +22,23 @@ function initDrawingArea(n) {
         for (let x = 1; x <= n; x++) {
             const newCell = document.createElement('div');
             newCell.style = `grid-column: ${x}; grid-row: ${y}`;
+            setLightOnHover(newCell);
             drawingArea.appendChild(newCell);
         }
     }
+}
+
+/**
+ * Set an event listener so a node lights up when the mouse enters it
+ */
+function setLightOnHover(node) {
+    node.addEventListener(
+        'mouseenter',
+        (ev) => {
+            node.classList.add('lit');
+        },
+        { once: true }
+    )
 }
 
  /*************
