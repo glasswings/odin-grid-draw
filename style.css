@@ -13,11 +13,11 @@ h1 {
     margin: auto;
     height: 480px;
     width: 480px;
-    background-color: black;
+    background-color: #462d8b;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 1.5px;
+    gap: 3px;
 }
 
 #drawing-area div {
