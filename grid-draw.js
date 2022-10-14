@@ -49,7 +49,7 @@ registerGridSizeInputValidation(document.querySelector('#grid-size'));
 function registerGridSizeInputValidation(gridSizeInput) {
     const gsi = gridSizeInput;
     const min = 4;
-    const max = 32;
+    const max = 100;
     const def = 16;
     gsi.min = min;
     gsi.max = max;
